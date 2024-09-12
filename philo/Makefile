@@ -3,7 +3,7 @@ OBJ_DIR = build
 CFLAGS = -g -Wall -Wextra -Werror
 SRC_DIR = src
 CC = gcc
-SRC = $(SRC_DIR)/util.c philo.c
+SRC = $(SRC_DIR)/util.c philo.c $(SRC_DIR)/routine.c
 OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 RM = rm -rf
 
@@ -18,7 +18,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJ_DIR)/*.o
+	@$(RM) $(OBJ_DIR)/*.o philo.dSYM
 
 fclean: clean
 	@$(RM) $(NAME)
